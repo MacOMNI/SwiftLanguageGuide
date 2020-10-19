@@ -40,7 +40,6 @@ func swiftTourDemo() {
         dict[keySting] = optionalValueString
     } else {
         dict[""] = optionalValueString
-
     }
     for (key,value) in dict {
         print("key = \(key),value = \(value)")
@@ -58,7 +57,30 @@ func swiftTourDemo() {
     scores.append(83.5)
     
     print(updateScorces(scores: scores))
+    actionNumbers()
     
+}
+
+func actionNumbers() {
+    var numbers = [Int]()
+    for _ in 0..<10 {
+        numbers.append(Int(arc4random()%100))
+    }
+    print(numbers)
+    var mapNumbers = numbers.map { (a:Int) -> Int in
+        return a + 3
+    }
+   
+    print("3 + numbers = \(mapNumbers)")
+    mapNumbers = mapNumbers.map({ number in 3*number})
+    print("3*mapNumbers = \(mapNumbers)")
+    var sortNumbers = mapNumbers.sorted { (a:Int, b:Int) -> Bool in
+        return a < b
+    }
+    print("sortedNumber = \(sortNumbers)")
+    sortNumbers = sortNumbers.sorted(by: { $0 > $1})
+    print("sortedNumber = \(sortNumbers)")
+
 }
 
 func updateScorces(scores:[Float]) -> (max:Float,min:Float,average:Float) {
