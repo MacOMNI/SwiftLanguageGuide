@@ -58,9 +58,78 @@ func swiftTourDemo() {
     
     print(updateScorces(scores: scores))
     actionNumbers()
+    let retangle = RetangleShape.init(m: 5, n: 4,name: "ratangle")
+    print(retangle.desShapeSides())
+    print(retangle.len)
+    
+    // enum
+    let coin = Coin.init(rawValue: 2)
+    print(coin?.CoinDescription() as Any)
+    let manager = netManager.init(request: Response.result("www.baidu.com", "post"))
+    print(manager.managerDescription())
+}
+class netManager {
+    var request :Response
+    init(request:Response) {
+        self.request = request
+    }
+    func managerDescription() -> String {
+        switch self.request {
+        case let .result(url, params):
+            return "url = \(url),params = \(params)"
+        case let .failure(err):
+            return "failure = \(err)"
+        }
+    }
+}
+enum Response {
+    case result(String,String)
+    case failure(String)
+}
+enum Coin :Int{
+    case btc = 1
+    case eth,eos,ht
+    func CoinDescription() -> String {
+        switch self {
+        case .btc:
+            return "Bitcoin"
+        default:
+            return String(self.rawValue)
+        }
+    }
     
 }
-
+class NamedShape {
+    var numberOfSides :Int = 0
+    var name :String
+    init(name:String) {
+        self.name = name
+    }
+    func desShapeSides() -> String {
+        return "The shape of \(name) has \(numberOfSides) sides."
+    }
+}
+class RetangleShape: NamedShape {
+    var m : Float
+    var n : Float
+    init(m:Float,n:Float,name:String) {
+        self.m = m
+        self.n = n
+        super.init(name: name)
+    }
+    func area() -> Float {
+        return m*n
+    }
+    var len:Float{
+        get {
+            return (m+n)*2
+        }
+    }
+    override func desShapeSides() -> String {
+        return "The shape area is \(area())"
+    }
+    
+}
 func actionNumbers() {
     var numbers = [Int]()
     for _ in 0..<10 {
