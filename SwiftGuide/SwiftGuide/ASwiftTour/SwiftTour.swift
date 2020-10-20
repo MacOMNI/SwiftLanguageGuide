@@ -21,7 +21,7 @@ func swiftTourDemo() {
         print("item \(index):\(myLoveList[index])")
     }
     for index  in myLoveList.reversed() {
-            print("reversed item = ",index)
+        print("reversed item = ",index)
     }
     for index  in (0..<myLoveList.count).reversed() {
         print("reversed index =  \(index),\(myLoveList[index])")
@@ -44,11 +44,11 @@ func swiftTourDemo() {
     for (key,value) in dict {
         print("key = \(key),value = \(value)")
     }
-//    guard let keyString = optionalKeyString else {
-//        optionalKeyString = ""
-//        print("Optional key is error!")
-//    }
-
+    //    guard let keyString = optionalKeyString else {
+    //        optionalKeyString = ""
+    //        print("Optional key is error!")
+    //    }
+    
     print("dic = \(dict)")
     // func
     var scores = [Float]()
@@ -65,10 +65,37 @@ func swiftTourDemo() {
     // enum
     let coin = Coin.init(rawValue: 2)
     print(coin?.CoinDescription() as Any)
-    let manager = netManager.init(request: Response.result("www.baidu.com", "post"))
+    let manager = NetManager.init(request: Response.result("www.baidu.com", "post"))
     print(manager.managerDescription())
+    // protocal
+    let show =   ShowGuide.init(dec: "Start!")
+    print(show.showExample())
+    show.adjust()
+    print(show.showExample())
+    
 }
-class netManager {
+protocol ExampleProtocal {
+    var exampleDescription:String { get }
+    func showExample() -> String
+    mutating func adjust()
+}
+class ShowGuide: ExampleProtocal {
+    var exampleDescription: String
+    
+    func showExample() -> String {
+        return exampleDescription
+    }
+    
+    func adjust() {
+        exampleDescription = "Show random is \(arc4random()/1000)"
+    }
+    
+    init(dec :String) {
+        self.exampleDescription = dec
+    }
+    
+}
+class NetManager {
     var request :Response
     init(request:Response) {
         self.request = request
@@ -139,7 +166,7 @@ func actionNumbers() {
     var mapNumbers = numbers.map { (a:Int) -> Int in
         return a + 3
     }
-   
+    
     print("3 + numbers = \(mapNumbers)")
     mapNumbers = mapNumbers.map({ number in 3*number})
     print("3*mapNumbers = \(mapNumbers)")
@@ -149,7 +176,7 @@ func actionNumbers() {
     print("sortedNumber = \(sortNumbers)")
     sortNumbers = sortNumbers.sorted(by: { $0 > $1})
     print("sortedNumber = \(sortNumbers)")
-
+    
 }
 
 func updateScorces(scores:[Float]) -> (max:Float,min:Float,average:Float) {
