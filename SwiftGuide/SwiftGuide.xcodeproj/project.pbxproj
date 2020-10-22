@@ -18,6 +18,8 @@
 		5A98F220253D8F6500AC3805 /* SwiftTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98F21F253D8F6500AC3805 /* SwiftTour.swift */; };
 		5A98F221253D8F6500AC3805 /* SwiftTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98F21F253D8F6500AC3805 /* SwiftTour.swift */; };
 		5A98F222253D8F6500AC3805 /* SwiftTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98F21F253D8F6500AC3805 /* SwiftTour.swift */; };
+		5A98F2272541715500AC3805 /* CustumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98F2262541715500AC3805 /* CustumView.swift */; };
+		5A98F2292541834500AC3805 /* NumberStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98F2282541834500AC3805 /* NumberStepper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		5A98F210253D8F4400AC3805 /* SwiftGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGuideUITests.swift; sourceTree = "<group>"; };
 		5A98F212253D8F4400AC3805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A98F21F253D8F6500AC3805 /* SwiftTour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTour.swift; sourceTree = "<group>"; };
+		5A98F2262541715500AC3805 /* CustumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustumView.swift; sourceTree = "<group>"; };
+		5A98F2282541834500AC3805 /* NumberStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberStepper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				5A98F1EE253D8F4400AC3805 /* AppDelegate.swift */,
 				5A98F1F0253D8F4400AC3805 /* SceneDelegate.swift */,
 				5A98F1F2253D8F4400AC3805 /* ViewController.swift */,
+				5A98F2252541713800AC3805 /* ProjectDemo */,
 				5A98F224253D8F6C00AC3805 /* LanguageGuide */,
 				5A98F223253D8F6C00AC3805 /* LanguageReference */,
 				5A98F21E253D8F6500AC3805 /* ASwiftTour */,
@@ -155,6 +160,15 @@
 			children = (
 			);
 			path = LanguageGuide;
+			sourceTree = "<group>";
+		};
+		5A98F2252541713800AC3805 /* ProjectDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5A98F2262541715500AC3805 /* CustumView.swift */,
+				5A98F2282541834500AC3805 /* NumberStepper.swift */,
+			);
+			path = ProjectDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A98F2272541715500AC3805 /* CustumView.swift in Sources */,
 				5A98F1F3253D8F4400AC3805 /* ViewController.swift in Sources */,
+				5A98F2292541834500AC3805 /* NumberStepper.swift in Sources */,
 				5A98F220253D8F6500AC3805 /* SwiftTour.swift in Sources */,
 				5A98F1EF253D8F4400AC3805 /* AppDelegate.swift in Sources */,
 				5A98F1F1253D8F4400AC3805 /* SceneDelegate.swift in Sources */,

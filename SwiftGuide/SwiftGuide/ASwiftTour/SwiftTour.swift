@@ -11,6 +11,10 @@ import Foundation
 func swiftTourDemo() {
     // let var
     print("Hello, world!")
+    let showWords :String = """
+    I say :"Hello , welcome to china!"
+    """
+    print(showWords)
     let name :String = "MacKun";
     let age:Int = 30;
     print("I am \(name),\(age) years old!")
@@ -25,6 +29,11 @@ func swiftTourDemo() {
     }
     for index  in (0..<myLoveList.count).reversed() {
         print("reversed index =  \(index),\(myLoveList[index])")
+    }
+    let array = Array.init(repeating: 1, count: 10)
+    print(array)
+    for item in myLoveList[0...2] {
+        print("item = \(item)")
     }
     myLoveList.removeAll()
     // dictionary
@@ -153,6 +162,8 @@ class RetangleShape: NamedShape {
         }
     }
     override func desShapeSides() -> String {
+        print("self class is \(RetangleShape.self)")
+        print("super class is \(String(describing: class_getSuperclass(RetangleShape.self)!))")
         return "The shape area is \(area())"
     }
     
