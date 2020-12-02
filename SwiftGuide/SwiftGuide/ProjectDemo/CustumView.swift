@@ -11,12 +11,14 @@ import UIKit
 // 自定义 custom view 支持
 @IBDesignable
 class CustomImgTitleView:UIView {
+    
     @IBInspectable
     var imageName : String = "settings_telegram" {
         didSet {
             imageView.image = UIImage.init(named:imageName)
         }
     }
+    
     @IBInspectable
     var title : String = "" {
         didSet {
@@ -31,11 +33,13 @@ class CustomImgTitleView:UIView {
             desLabel.text = des
         }
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
         upLayout()
     }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
@@ -70,6 +74,7 @@ class CustomImgTitleView:UIView {
         NSLayoutConstraint.activate(deactive)
 
     }
+    
     lazy var deactive : [NSLayoutConstraint] = {
         return [titleLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)]
     }()
@@ -81,6 +86,7 @@ class CustomImgTitleView:UIView {
         view.image = img
         return view
     }()
+    
     lazy var titleLabel : UILabel = {
         let label = UILabel.init()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -90,6 +96,7 @@ class CustomImgTitleView:UIView {
         label.textColor = .black
         return label
     }()
+    
     lazy var desLabel : UILabel = {
         let label = UILabel.init()
         label.translatesAutoresizingMaskIntoConstraints = false
