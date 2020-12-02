@@ -49,6 +49,7 @@ class CountDownTaskManager: NSObject {
             updateTaskCount(task: task, index: index)
         }
     }
+    
     func updateTaskCount(task: CountDownTask?,index: Int?) -> Void {
         guard let task = task else { return }
        
@@ -76,7 +77,27 @@ public class SafeArray<Elment> {
     fileprivate let queue = DispatchQueue.init(label: "safeArrayQueue", qos: .default, attributes: .concurrent)
     fileprivate var array = [Elment]()
 }
+
 extension SafeArray {
+    
+    subscript(index: Int) ->Elment? {
+        
+        get {
+            var res: Elment?
+            queue.sync {
+                guard self.array.startIndex..<self.array.endIndex ~= index else { return }
+                res = self.array[index]
+            }
+            return res
+        }
+        set {
+            guard let newValue = newValue else { return }
+            guard self.array.startIndex..<self.array.endIndex ~= index else { return }
+            queue.async(flags: .barrier) {
+                self.array[index] = newValue
+            }
+        }
+    }
     
     var count: Int {
         var res = 0
