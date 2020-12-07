@@ -11,6 +11,7 @@ import Foundation
 protocol CountDownProtocal: NSObject {
     func updateCountDown(count: String,obj: AnyObject?) -> Void
 }
+
 class CountDownTaskManager: NSObject {
     
     public static let sharedManager = CountDownTaskManager()
