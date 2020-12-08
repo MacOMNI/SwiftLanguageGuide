@@ -10,7 +10,7 @@ import UIKit
 
 class ImageCacheManager: NSObject {
 
-    public static let sharedManager = ImageCacheManager()
+    public static let shared = ImageCacheManager()
   // private let cache = NSCache<NSURL,UIImage>()
     
     override init() {
@@ -25,22 +25,24 @@ class ImageCacheManager: NSObject {
        return ch
     }()
     
-    public func isExtImageUrl(url: NSURL) -> Bool {
-        guard let _ =  cache.object(forKey: url) else {
-            return false
+    subscript(url: NSURL) -> UIImage? {
+        get {
+            cache.object(forKey: url)
         }
-        return true
+        set {
+            guard let newValue = newValue else { return }
+            cache.setObject(newValue, forKey: url)
+        }
     }
     
-    
-    public func setCacheImage(url:NSURL, image: UIImage) -> Void {
-        cache.setObject(image, forKey: url)
-    }
-    
-    public func getCacheImageUrl(url:NSURL) -> UIImage? {
-       return cache.object(forKey: url)
-    }
-    
+//    public func setCacheImage(url:NSURL, image: UIImage) -> Void {
+//        cache.setObject(image, forKey: url)
+//    }
+//
+//    public func getCacheImageUrl(url:NSURL) -> UIImage? {
+//       return cache.object(forKey: url)
+//    }
+//
     
 
     

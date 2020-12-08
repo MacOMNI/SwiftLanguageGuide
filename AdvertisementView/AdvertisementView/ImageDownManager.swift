@@ -17,7 +17,7 @@ class Constant: NSObject {
 
 class ImageDownManager: NSObject {
     //单例
-    public static let sharedManager: ImageDownManager = ImageDownManager()
+    public static let shared: ImageDownManager = ImageDownManager()
     //队列
     private let queue = OperationQueue.init()
     
@@ -33,7 +33,7 @@ class ImageDownManager: NSObject {
             return
         }
         // 缓存中有
-        if ImageCacheManager.sharedManager.isExtImageUrl(url: imagUrl), let image = ImageCacheManager.sharedManager.getCacheImageUrl(url: imagUrl) {
+        if let image = ImageCacheManager.shared[imagUrl] {
             complection?(true,image)
             return
         }
@@ -66,8 +66,7 @@ class ImageDownManager: NSObject {
                 }
                 return
             }
-            
-            ImageCacheManager.sharedManager.setCacheImage(url: url, image: image)
+            ImageCacheManager.shared[url] = image
             DispatchQueue.main.async {
                 completion?(true,image)
             }

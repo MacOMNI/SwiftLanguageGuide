@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         timer = Timer.init(timeInterval: 3, repeats: true, block: { (_) in
-            ImageDownManager.sharedManager.loadDownImageUrl(url: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1963442875,1146947704&fm=26&gp=0.jpg") { [weak self](isSuccess, image) in
+            ImageDownManager.shared.loadDownImageUrl(url: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1963442875,1146947704&fm=26&gp=0.jpg") { [weak self](isSuccess, image) in
                 print(isSuccess)
                 if isSuccess {
                     self?.imageView.image = image
