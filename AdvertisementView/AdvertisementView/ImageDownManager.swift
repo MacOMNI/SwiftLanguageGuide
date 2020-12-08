@@ -10,13 +10,17 @@ import UIKit
 
 typealias DownLoadComplection = (_ isSucess: Bool, _ image: UIImage?) -> Void
 
+
+class Constant: NSObject {
+    public static let timerOutInteval: TimeInterval = 3
+}
+
 class ImageDownManager: NSObject {
     //单例
     public static let sharedManager: ImageDownManager = ImageDownManager()
     //队列
-    private static let queue = DispatchQueue.init(label: String(describing: ImageDownManager.self))
+    private let queue = OperationQueue.init()
     
-    private var timer: Timer?
     override init() {
         super.init()
         
@@ -33,17 +37,49 @@ class ImageDownManager: NSObject {
             complection?(true,image)
             return
         }
-        
+
         downLoadImageUrl(url: imagUrl, completion: complection)
         
     }
     
-    func downLoadImageUrl(url: NSURL, completion: DownLoadComplection?){
+    private func downLoadImageUrl(url: NSURL, completion: DownLoadComplection?){
+        let req = URLRequest.init(url: url as URL,  timeoutInterval: Constant.timerOutInteval)
         
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = Constant.timerOutInteval
+        config.timeoutIntervalForResource = Constant.timerOutInteval
+        config.requestCachePolicy = .reloadIgnoringLocalCacheData
         
+        let session = URLSession.init(configuration: config, delegate: nil, delegateQueue: queue)
+        
+        let dataTask = session.dataTask(with: req) { (data, _, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    completion?(false,nil)
+                }
+                return
+            }
+            
+            guard let data = data, let image = UIImage.init(data: data) else {
+                DispatchQueue.main.async {
+                    completion?(false,nil)
+                }
+                return
+            }
+            
+            ImageCacheManager.sharedManager.setCacheImage(url: url, image: image)
+            DispatchQueue.main.async {
+                completion?(true,image)
+            }
+        }
+        dataTask.resume()
     }
     
     
     
     
 }
+
+//extension ImageDownManager: URLSessionDelegate {
+//
+//}
