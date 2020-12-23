@@ -1,6 +1,8 @@
 [TOC]
 
 # 什么是runtime？
+
+[runtime基础](https://juejin.cn/post/6844904071833337863)
 [苹果官方解答](https://developer.apple.com/documentation/objectivec/objective-c_runtime)
 [官方文档翻译](https://blog.csdn.net/coyote1994/article/details/52441513)
 
