@@ -2,7 +2,9 @@
 + [iOS线下分享《RunLoop》by 孙源@sunnyxx](https://v.youku.com/v_show/id_XODgxODkzODI0.html)
 + [RunLoop 学习](http://blog.qiji.tech/archives/9125)
 + [runloop 面试题](https://www.jianshu.com/p/00d7fe4d9a93)
++ [深入理解RunLoop](https://juejin.cn/post/6844904109833715725)
 
+深入理解RunLoop
 [TOC]
 
 # 什么是runloop
