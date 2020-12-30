@@ -11,7 +11,8 @@
 - 01、[Swift基础](https://github.com/MacOMNI/SwiftLanguageGuide/blob/main/Swift.md)
 ### iOS interview
 - 01、[Interview 1](https://github.com/DevDragonLi/iOSInterviewsAndDevNotes)
-- 01、[全新角度剖析](https://www.jianshu.com/p/033505af9e1d)
+- 02、[全新角度剖析](https://www.jianshu.com/p/033505af9e1d)
+- 03、[总结](https://www.jianshu.com/p/886e99d4abb1)
 
 ### iOS知识
 - 01、KVC与KVO
