@@ -9,6 +9,10 @@
 - 05、数据结构和算法
 ### iOS SWift
 - 01、[Swift基础](https://github.com/MacOMNI/SwiftLanguageGuide/blob/main/Swift.md)
+### iOS interview
+- 01、[Interview 1](https://github.com/DevDragonLi/iOSInterviewsAndDevNotes)
+- 01、[全新角度剖析](https://www.jianshu.com/p/033505af9e1d)
+
 ### iOS知识
 - 01、KVC与KVO
 - 02、分类与关联对象
