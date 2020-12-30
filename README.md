@@ -5,7 +5,7 @@
 - 01、计算机基础
 - 02、HTTP协议
 - 03、TCP/UDP
-- 04、设计模式
+- 04、[设计模式](https://github.com/MacOMNI/SwiftLanguageGuide/blob/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
 - 05、数据结构和算法
 ### iOS SWift
 - 01、[Swift基础](https://github.com/MacOMNI/SwiftLanguageGuide/blob/main/Swift.md)
