@@ -36,9 +36,9 @@
 - 04、线上卡顿监控
 - 05、无埋点技术
 
-### iOS多线程
+### 基础知识
 
 - 01、[线程安全方案](http://ibloodline.com/articles/2016/09/02/multithread.html)
-
+- 02、[HTTP&TCP](https://zhuanlan.zhihu.com/p/103000747)
 
 
